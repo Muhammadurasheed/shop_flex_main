@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "408622842218",
+    "project_id": "shopflex-24522",
+    "storage_bucket": "shopflex-24522.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408622842218:android:bcc5c9da8dc6d59686e513",
+        "android_client_info": {
+          "package_name": "com.rashman.shop_flex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFQSU16O_aOjFJcImRljHWbIGgB1fkBq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
