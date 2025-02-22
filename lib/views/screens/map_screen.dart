@@ -44,7 +44,7 @@ class MapScreen extends StatelessWidget {
             myLocationButtonEnabled: true,
             padding: EdgeInsets.only(bottom: 200),
             initialCameraPosition: _kGooglePlex,
-            mapType: MapType.hybrid,
+            mapType: MapType.normal,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
 

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_flex/views/screens/account_screen.dart';
@@ -24,6 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    final Stream<QuerySnapshot> _vendorChatStream = FirebaseFirestore.instance.collection('users').snapshots();
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
@@ -31,7 +33,7 @@ class _MainScreenState extends State<MainScreen> {
             pageIndex = value;
           });
         },
-        selectedItemColor: Colors.pinkAccent,
+        selectedItemColor: Colors.yellow.shade900,
         currentIndex: pageIndex,
         items: [
           BottomNavigationBarItem(

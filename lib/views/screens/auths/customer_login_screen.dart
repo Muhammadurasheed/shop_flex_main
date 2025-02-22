@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_flex/controllers/auth_controller.dart';
 import 'package:shop_flex/controllers/text_form_field_controller.dart';
-import 'package:shop_flex/views/screens/auths/register_screen.dart';
+import 'package:shop_flex/views/screens/auths/customer_register_screen.dart';
 import 'package:shop_flex/views/screens/map_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class CustomerLoginScreen extends StatefulWidget {
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<CustomerLoginScreen> createState() => _CustomerLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _CustomerLoginScreenState extends State<CustomerLoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final AuthController _authController = AuthController();
@@ -29,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       });
       if (result == 'success') {
         setState(() {
-          _isLoading = false;
+          _isLoading = true;
         });
         Get.to(MapScreen());
         Get.snackbar('Logged In', 'Logged in successfully',
@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 validationWarning: 'Email field cannot be empty',
                 fieldIcon: Icon(
                   Icons.email,
-                  color: Colors.pinkAccent,
+                  color: Colors.yellow.shade900,
                 ),
                 label: 'Email',
                 hintText: 'Enter your eamil...',
@@ -88,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 validationWarning: 'Enter a valid password',
                 fieldIcon: Icon(
                   Icons.lock,
-                  color: Colors.pinkAccent,
+                  color: Colors.yellow.shade900,
                 ),
                 label: 'Password',
                 hintText: 'Enter your password...',
@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50,
                   width: MediaQuery.of(context).size.width - 40,
                   decoration: BoxDecoration(
-                      color: Colors.pinkAccent,
+                      color: Colors.yellow.shade900,
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: _isLoading
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return RegisterScreen();
+                          return CustomerRegisterScreen();
                         },
                       ),
                     );

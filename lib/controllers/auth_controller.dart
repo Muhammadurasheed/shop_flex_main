@@ -30,7 +30,7 @@ class AuthController {
     }
   }
 
-  Future<String> createUser(String email, String username, String password,
+  Future<String> createUser(String email, String fullName, String password,
       String confirmPassword, Uint8List? image) async {
     String result = 'some errors occured';
     try {
@@ -39,7 +39,7 @@ class AuthController {
       String profileImageUrl = await uploadImageToStorage(image);
 
       await _firestore.collection('buyers').doc(userCredential.user!.uid).set({
-        'username': username,
+        'fullName': fullName,
         'email': email,
         'buyerId': userCredential.user!.uid,
         'profileImageUrl': profileImageUrl,

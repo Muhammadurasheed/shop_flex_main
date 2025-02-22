@@ -6,19 +6,19 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shop_flex/controllers/auth_controller.dart';
 import 'package:shop_flex/controllers/text_form_field_controller.dart';
-import 'package:shop_flex/views/screens/auths/login_screen.dart';
+import 'package:shop_flex/views/screens/auths/customer_login_screen.dart';
 
-class RegisterScreen extends StatefulWidget {
+class CustomerRegisterScreen extends StatefulWidget {
   @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
+  State<CustomerRegisterScreen> createState() => _CustomerRegisterScreenState();
 }
 
-class _RegisterScreenState extends State<RegisterScreen> {
+class _CustomerRegisterScreenState extends State<CustomerRegisterScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   late String email;
 
-  late String username;
+  late String fullName;
 
   late String password;
 
@@ -53,12 +53,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
           _isLoading = true;
         });
         String result = await _authController.createUser(
-            email, username, password, confirmPassword, image);
+            email, fullName, password, confirmPassword, image);
         if (result == 'success') {
           setState(() {
             _isLoading = false;
           });
-          Get.to(LoginScreen());
+          Get.to(CustomerLoginScreen());
           Get.snackbar('Success', 'Account created successfully',
               backgroundColor: Colors.green, colorText: Colors.white);
         } else {
@@ -132,22 +132,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 25,
                   ),
                   CreateTextFormField(
-                    validationWarning: 'Username field cannot be empty',
+                    validationWarning: 'fullName field cannot be empty',
                     fieldIcon: Icon(
                       Icons.person,
-                      color: Colors.pinkAccent,
+                      color: Colors.yellow.shade900,
                     ),
-                    label: 'Username',
-                    hintText: 'Enter your username...',
+                    label: 'Full Name',
+                    hintText: 'Enter your full name...',
                     onChanged: (value) {
-                      username = value;
+                      fullName = value;
                     },
                   ),
                   CreateTextFormField(
                     validationWarning: 'Email field cannot be empty',
                     fieldIcon: Icon(
                       Icons.email,
-                      color: Colors.pinkAccent,
+                      color: Colors.yellow.shade900,
                     ),
                     label: 'Email',
                     hintText: 'Enter your eamil...',
@@ -162,9 +162,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validationWarning: 'Enter a valid password',
                     fieldIcon: Icon(
                       Icons.lock,
-                      color: Colors.pinkAccent,
+                      color: Colors.yellow.shade900,
                     ),
                     label: 'Password',
+                
                     hintText: 'Enter your password...',
                     onChanged: (value) {
                       password = value;
@@ -174,7 +175,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     validationWarning: 'Enter valid password',
                     fieldIcon: Icon(
                       Icons.lock,
-                      color: Colors.pinkAccent,
+                      color: Colors.yellow.shade900,
                     ),
                     label: 'Confirm Password',
                     hintText: 'Enter your password...',
@@ -193,7 +194,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: 50,
                       width: MediaQuery.of(context).size.width - 40,
                       decoration: BoxDecoration(
-                          color: Colors.pinkAccent,
+                          color: Colors.yellow.shade900,
                           borderRadius: BorderRadius.circular(10)),
                       child: Center(
                         child: _isLoading
@@ -218,7 +219,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return LoginScreen();
+                          return CustomerLoginScreen();
                         }));
                       },
                       child: Text('Already have an account?')),
